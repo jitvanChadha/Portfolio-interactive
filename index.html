@@ -1,0 +1,558 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Jitvan Chadha | Developer Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Jitvan Chadha, a Computer Science and Statistics undergraduate at Christ University, Bengaluru, who builds full-stack web apps and explores cybersecurity. Boot the retro terminal to look around.">
+  <meta name="author" content="Jitvan Chadha">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jitvan Chadha | Developer Portfolio">
+  <meta property="og:description"
+    content="A retro desktop you can boot from a terminal: projects, resume and more from a builder and ethical-hacking enthusiast.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@500;700;800&family=Silkscreen&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="img/favicon-64.png">
+  <link rel="apple-touch-icon" href="img/favicon-180.png">
+  <link rel="preload" as="image" href="img/scene.webp">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <noscript>
+    <div class="nojs">
+      <div>
+        <h1>Jitvan Chadha</h1>
+        <p>Computer Science and Statistics undergraduate at Christ (Deemed to be University), Bengaluru. I build
+          websites and software, and I like testing them for vulnerabilities too.</p>
+        <p>This portfolio is an interactive retro desktop and needs JavaScript. Without it you can still <a
+            href="resume.pdf">read my resume (PDF)</a> or visit my projects:
+          <a href="https://peora.vercel.app/">Peora</a>,
+          <a href="https://researchjitvan.vercel.app/">Behavioural Analytics</a>,
+          <a href="https://get-thinkstack.github.io/ThinkStack/">Think Stack</a>.
+        </p>
+      </div>
+    </div>
+  </noscript>
+  <div id="backdrop" aria-hidden="true"></div>
+  <img id="portfolio-logo" src="img/logo.webp" alt="Portfolio by Jitvan" width="480" height="320">
+  <div id="stage">
+    <div id="scene">
+      <img id="photo" alt="" src="img/scene.webp" width="1672" height="941" draggable="false">
+      <div id="screen">
+        <div id="sbar"><span>Portfolio by Jitvan</span><span id="clk"></span></div>
+        <div id="term">
+          <div id="out" role="log" aria-live="polite"></div>
+          <div id="line"><span class="ps" id="ps"></span><span id="typed"></span><span class="cur"></span></div>
+        </div>
+        <div id="fbar">
+          <button class="fbtn go" type="button" data-cmd="launch Portfolio">&#9654; launch Portfolio</button>
+        </div>
+        <input id="inp" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
+          aria-label="Terminal input" enterkeyhint="go">
+        <div id="batman-container">
+          <canvas id="batman-bg"></canvas>
+          <canvas id="batman-c"></canvas>
+        </div>
+        <div id="intro-anim" aria-hidden="true">
+          <div id="intro-word"></div>
+          <div id="intro-slot">
+            <div id="intro-sub"></div>
+            <div id="intro-bar"></div>
+          </div>
+          <div id="intro-pct"></div>
+        </div>
+        <div id="skip-hint" aria-hidden="true">click or press any key to skip</div>
+        <div id="ov">
+          <img id="wallpaper" alt="" src="wallpaper.jpg" draggable="false">
+          <div id="desktop-icons">
+            <button class="di" type="button" data-action="about">
+              <img src="img/icon_about.png" alt="" width="46" height="46" draggable="false">
+              <span>About Me</span>
+            </button>
+            <button class="di" type="button" data-action="resume">
+              <img src="img/icon_resume.png" alt="" width="46" height="46" draggable="false">
+              <span>Resume</span>
+            </button>
+            <button class="di" type="button" data-action="projects">
+              <img src="img/icon_projects.png" alt="" width="46" height="46" draggable="false">
+              <span>Projects</span>
+            </button>
+            <button class="di" type="button" data-action="computer">
+              <img src="img/icon_computer.png" alt="" width="46" height="46" draggable="false">
+              <span>My Computer</span>
+            </button>
+            <button class="di" type="button" data-action="exit">
+              <img src="img/icon_exit.png" alt="" width="46" height="46" draggable="false">
+              <span>Exit</span>
+            </button>
+          </div>
+
+          <!-- Black Content Frame (Projects) -->
+          <div class="retro-win theme-black" id="win-projects" data-theme="black" data-init-x="136" data-init-y="50"
+            role="dialog" aria-label="Projects" tabindex="-1">
+            <div class="frame"></div>
+            <div class="title"><span class="title-text">Projects</span></div>
+            <button class="wtb bmin" type="button" title="Minimize" aria-label="Minimize Projects"></button>
+            <button class="wtb bmax" type="button" title="Maximize / restore"
+              aria-label="Maximize or restore Projects"></button>
+            <button class="wtb bclose" type="button" title="Close" aria-label="Close Projects"></button>
+            <div class="pane">
+              <div class="pj-root">
+                <div class="pj-body">
+                  <h2 class="pj-title">Projects
+                    <svg class="pj-scribble" viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true">
+                      <path d="M4 14C60 4 120 22 180 8S280 18 296 6" />
+                    </svg>
+                    <svg class="pj-sparkle" viewBox="0 0 48 48" aria-hidden="true">
+                      <path d="M24 3c3 13 8 18 21 21-13 3-18 8-21 21-3-13-8-18-21-21 13-3 18-8 21-21z" />
+                    </svg>
+                  </h2>
+                  <p class="pj-sub">handcrafted builds, production systems and security experiments</p>
+
+                  <div class="pj-tabs" role="group" aria-label="Project categories">
+                    <button class="pj-tab" type="button" data-cat="webdev" aria-pressed="true">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="2.5" y="4" width="19" height="15" rx="2.5" />
+                        <path d="M8 15l-3-3 3-3M16 9l3 3-3 3M13 8l-2 8" />
+                      </svg>Web Dev</button>
+                    <button class="pj-tab" type="button" data-cat="saas" aria-pressed="false">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+                      </svg>SaaS</button>
+                  </div>
+
+                  <div class="pj-list"></div>
+                </div>
+                <div class="pj-status"><span data-pj-count></span><span>Projects</span></div>
+              </div>
+            </div>
+            <i class="h" data-d="n"></i><i class="h" data-d="s"></i><i class="h" data-d="w"></i><i class="h"
+              data-d="e"></i>
+            <i class="h" data-d="nw"></i><i class="h" data-d="ne"></i><i class="h" data-d="sw"></i><i class="h"
+              data-d="se"></i>
+          </div>
+
+          <!-- White Content Frame (Resume) -->
+          <div class="retro-win theme-white" id="win-resume" data-theme="white" data-init-x="118" data-init-y="34"
+            role="dialog" aria-label="Resume" tabindex="-1">
+            <div class="frame"></div>
+            <div class="title"><span class="title-text">Resume</span></div>
+            <button class="wtb bmin" type="button" title="Minimize" aria-label="Minimize Resume"></button>
+            <button class="wtb bmax" type="button" title="Maximize / restore"
+              aria-label="Maximize or restore Resume"></button>
+            <button class="wtb bclose" type="button" title="Close" aria-label="Close Resume"></button>
+            <div class="pane">
+              <div class="resume-toolbar">
+                <div class="resume-title-group">
+                  <svg class="resume-doc-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round" />
+                    <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <line x1="10" y1="9" x2="8" y2="9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span class="resume-filename">Jitvan_Chadha_Resume.pdf</span>
+                </div>
+                <div class="resume-actions">
+                  <a href="resume.pdf" download="Jitvan_Chadha_Resume.pdf" class="resume-action-btn download"
+                    title="Download Resume PDF">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" fill="none"
+                        stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Download
+                  </a>
+                  <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-action-btn open-tab"
+                    title="Open PDF in new browser tab">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" fill="none"
+                        stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Open in new tab
+                  </a>
+                </div>
+              </div>
+              <div class="resume-viewer-container">
+                <iframe id="resume-frame" class="resume-iframe" title="Jitvan Chadha resume (PDF)"
+                  data-src="resume.pdf#toolbar=1&amp;navpanes=0&amp;view=FitH"></iframe>
+                <div class="resume-fallback" id="resume-fallback" hidden>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+                  </svg>
+                  <b>Jitvan_Chadha_Resume.pdf</b>
+                  <p>This browser can't preview PDFs inside the page. Open it in a new tab or save a copy.</p>
+                  <div class="resume-actions">
+                    <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
+                      class="resume-action-btn download">Open resume</a>
+                    <a href="resume.pdf" download="Jitvan_Chadha_Resume.pdf"
+                      class="resume-action-btn open-tab">Download</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <i class="h" data-d="n"></i><i class="h" data-d="s"></i><i class="h" data-d="w"></i><i class="h"
+              data-d="e"></i>
+            <i class="h" data-d="nw"></i><i class="h" data-d="ne"></i><i class="h" data-d="sw"></i><i class="h"
+              data-d="se"></i>
+          </div>
+
+          <!-- Beige Content Frame (About Me) -->
+          <div class="retro-win theme-beige" id="win-about" data-theme="beige" data-init-x="100" data-init-y="18"
+            role="dialog" aria-label="About Me" tabindex="-1">
+            <div class="frame"></div>
+            <div class="title"><span class="title-text">About Me</span></div>
+            <button class="wtb bmin" type="button" title="Minimize" aria-label="Minimize About Me"></button>
+            <button class="wtb bmax" type="button" title="Maximize / restore"
+              aria-label="Maximize or restore About Me"></button>
+            <button class="wtb bclose" type="button" title="Close" aria-label="Close About Me"></button>
+            <div class="pane">
+              <section class="about-content" id="about-section">
+                <h2 class="about-title">About Me
+                  <svg class="scribble" viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M4 14C60 4 120 22 180 8S280 18 296 6" />
+                  </svg>
+                  <svg class="sparkle" viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M24 3c3 13 8 18 21 21-13 3-18 8-21 21-3-13-8-18-21-21 13-3 18-8 21-21z" />
+                  </svg>
+                </h2>
+
+                <div class="about-hero">
+                  <!-- PHOTO: save your picture as about-photo.jpg in the project folder -->
+                  <figure class="polaroid">
+                    <svg class="clip" viewBox="0 0 40 90" aria-hidden="true">
+                      <path d="M12 72V22a10 10 0 0 1 20 0v50a6 6 0 0 1-12 0V30" />
+                    </svg>
+                    <div class="photo empty" id="about-photo">
+                      <img src="AboutMeImage.jpeg" alt="Portrait of Jitvan Chadha" loading="auto">
+                    </div>
+                    <figcaption>Believe you can and you're half way there.</figcaption>
+                  </figure>
+
+                  <div class="note intro tape y">
+                    <svg class="burst" viewBox="0 0 60 50" aria-hidden="true">
+                      <path d="M30 4V20M8 10l12 12M52 10L40 22" />
+                    </svg>
+                    <p class="hi">Hey there, pleased to meet you!</p>
+                    <p class="name">JITVAN<br>CHADHA</p>
+                    <span class="tag">Developer &amp; student</span>
+                    <p>I'm a Computer Science and Statistics undergraduate at Christ (Deemed to be University),
+                      Bangalore.</p>
+                  </div>
+                </div>
+
+                <!-- BADGES -->
+                <div class="about-badges">
+                  <h3 class="badges-title">I have been a <span class="hl">part of</span></h3>
+                  <ul class="badge-row">
+                    <li tabindex="0"><img src="CUIMAGEBADGE-seal-upright.png" class="badge-orig badge-christ" alt="CHRIST University Computer Science badge" width="190" height="190" loading="lazy"><span>Computer Science</span></li>
+                    <li tabindex="0"><img src="img/badge-peer-support.webp" alt="CHRIST Peer Support badge" width="190" height="190" loading="lazy"><span>Peer Support</span></li>
+                    <li tabindex="0"><img src="InterfaceBadge-2025.png" class="badge-orig badge-interface" alt="INTERFACE 2025 badge" width="190" height="190" loading="lazy"><span>INTERFACE '25</span></li>
+                    <li tabindex="0"><img src="img/badge-sda-bridge.webp" alt="STADA (Statistics and Data Science Association) BRIDGE 2024-2025 badge" width="190" height="190" loading="lazy"><span>STADA &middot; BRIDGE</span></li>
+                    <li tabindex="0"><img src="Glossy%20CHUP%20Poets%20Club%20Badge.png" class="badge-orig badge-chup" alt="Club of Hindi and Urdu Poets badge" width="190" height="190" loading="lazy"><span>Hindi &amp; Urdu Poets</span></li>
+                  </ul>
+                </div>
+
+                <div class="about-notes">
+                  <div class="note tape">
+                    <h3>I build things</h3>
+                    <p>I love building websites and software applications. Java, HTML, CSS, JavaScript and SQL are my
+                      everyday tools, and Linux has shaped much of the way I learn.</p>
+                  </div>
+                  <div class="note tape y">
+                    <h3>I test them too</h3>
+                    <p>Cybersecurity and ethical hacking pull me in just as strongly. I like testing applications,
+                      understanding how they work under the hood, and finding vulnerabilities before they turn into
+                      real-world problems.</p>
+                  </div>
+                  <div class="note tape">
+                    <h3>I practise daily</h3>
+                    <p>To keep those skills sharp, I practise hands-on on <strong>pwn.college</strong>, working through
+                      challenges that push me a little further each time.</p>
+                  </div>
+                </div>
+
+                <p class="motto">I learn by building, experimenting, and <span class="hl lime">breaking things
+                    (responsibly!)</span>, then working out how to make them better.</p>
+
+                <!-- TOOLS & TECHNOLOGIES -->
+                <div class="about-tools">
+                  <h3><span class="hl lime">What I work with</span></h3>
+                  <ul class="tile-grid" id="about-tile-grid">
+                    <li class="tile">
+                      <svg viewBox="0 0 48 48" role="img" aria-label="Java">
+                        <path d="M19 6c-3 4 3 6 0 11M26 3c-3 4 3 6 0 12" fill="none" stroke="#e76f00" stroke-width="2.4"
+                          stroke-linecap="round" />
+                        <path d="M10 22h22v9a9 9 0 0 1-9 9h-4a9 9 0 0 1-9-9z" fill="#5382a1" />
+                        <path d="M32 25h2.5a4.5 4.5 0 0 1 0 9H32" fill="none" stroke="#5382a1" stroke-width="3" />
+                        <path d="M8 44h28" stroke="#e76f00" stroke-width="3.4" stroke-linecap="round" />
+                      </svg>
+                      <span>Java</span>
+                    </li>
+                    <li class="tile">
+                      <svg viewBox="0 0 48 48" role="img" aria-label="HTML5">
+                        <path d="M6 4h36l-3.3 37L24 45 9.3 41z" fill="#e44d26" />
+                        <path d="M24 7.5v35.2l12.2-3.4L39 7.5z" fill="#f16529" />
+                        <path
+                          d="M32 16H16.5l.6 6.2H31l-.8 9.3-6.2 1.8-6.2-1.8-.4-4.6h4.4l.2 2.3 2 .6 2-.6.3-3.3h-9.2L15.5 13h17z"
+                          fill="#fff" />
+                      </svg>
+                      <span>HTML</span>
+                    </li>
+                    <li class="tile">
+                      <svg viewBox="0 0 48 48" role="img" aria-label="CSS3">
+                        <path d="M6 4h36l-3.3 37L24 45 9.3 41z" fill="#1572b6" />
+                        <path d="M24 7.5v35.2l12.2-3.4L39 7.5z" fill="#33a9dc" />
+                        <path
+                          d="M32.6 13H15.5l.5 5.6h10.6l-10.3 4.4.5 5.3h9.3l-.3 3-3.7 1-3.7-1-.2-2.8h-4.5l.5 5.7L24 36.4l8.3-2.3 1.2-13.2H21.6l-.2-2.4h11.9z"
+                          fill="#fff" />
+                      </svg>
+                      <span>CSS</span>
+                    </li>
+                    <li class="tile">
+                      <svg viewBox="0 0 48 48" role="img" aria-label="JavaScript">
+                        <rect x="4" y="4" width="40" height="40" rx="4" fill="#f7df1e" />
+                        <path
+                          d="M18 20v11c0 3-4 3.4-6 1.2M26.5 32.6c1 1.6 2.6 2.4 4.4 2.4 2.2 0 3.6-1 3.6-2.7 0-4.1-8-2.4-8-7.3 0-2.2 1.8-3.8 4.3-3.8 1.9 0 3.3.7 4.2 2"
+                          fill="none" stroke="#323330" stroke-width="3" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                      <span>JavaScript</span>
+                    </li>
+                    <li class="tile">
+                      <svg viewBox="0 0 48 48" role="img" aria-label="SQL database">
+                        <path d="M8 11v26c0 3.3 7.2 6 16 6s16-2.7 16-6V11z" fill="#336791" />
+                        <ellipse cx="24" cy="11" rx="16" ry="6" fill="#6fa8d6" />
+                        <path d="M8 19c0 3.3 7.2 6 16 6s16-2.7 16-6M8 28c0 3.3 7.2 6 16 6s16-2.7 16-6" fill="none"
+                          stroke="#a9cdea" stroke-width="2" />
+                      </svg>
+                      <span>SQL</span>
+                    </li>
+                    <li class="tile">
+                      <svg viewBox="0 0 48 48" role="img" aria-label="Linux">
+                        <ellipse cx="16" cy="43" rx="6.5" ry="2.8" fill="#f5a623" />
+                        <ellipse cx="32" cy="43" rx="6.5" ry="2.8" fill="#f5a623" />
+                        <path
+                          d="M24 3c-5 0-8 4-8 9 0 3-1 4.5-3 8-2.5 4.5-3 8-3 12 0 6 5 10 14 10s14-4 14-10c0-4-.5-7.5-3-12-2-3.5-3-5-3-8 0-5-3-9-8-9z"
+                          fill="#1c1c1c" />
+                        <ellipse cx="24" cy="31" rx="8" ry="10.5" fill="#f2f2f2" />
+                        <circle cx="20.5" cy="12" r="2.3" fill="#fff" />
+                        <circle cx="27.5" cy="12" r="2.3" fill="#fff" />
+                        <circle cx="21" cy="12.2" r="1" fill="#1c1c1c" />
+                        <circle cx="27" cy="12.2" r="1" fill="#1c1c1c" />
+                        <ellipse cx="24" cy="16.5" rx="4.2" ry="2.3" fill="#f5a623" />
+                      </svg>
+                      <span>Linux</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- CONTACT & STICKERS -->
+                <div class="about-contact" id="about-contact" hidden>
+                  <div class="ask">
+                    <p>Please don't hesitate to say hello!</p>
+                    <svg viewBox="0 0 70 70" aria-hidden="true">
+                      <path d="M6 6C44 2 66 24 58 62M44 50l14 13 8-19" />
+                    </svg>
+                  </div>
+                  <ul class="stickers">
+                    <li hidden><a data-contact="email" href="#">
+                        <svg class="line" viewBox="0 0 24 24" aria-hidden="true">
+                          <rect x="2.5" y="5" width="19" height="14" rx="2.5" />
+                          <path d="M3.5 7.5l8.5 6 8.5-6" />
+                        </svg>Email me</a></li>
+                    <li hidden><a data-contact="github" href="#" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path
+                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                        </svg>GitHub</a></li>
+                    <li hidden><a data-contact="linkedin" href="#" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>LinkedIn</a></li>
+                    <li hidden><a data-contact="pwn" href="#" target="_blank" rel="noopener noreferrer">
+                        <svg class="line" viewBox="0 0 24 24" aria-hidden="true">
+                          <rect x="2.5" y="4" width="19" height="16" rx="3" />
+                          <path d="M7 10l3 2.5L7 15M12.5 15.5H17" />
+                        </svg>pwn.college</a></li>
+                  </ul>
+                </div>
+              </section>
+            </div>
+            <i class="h" data-d="n"></i><i class="h" data-d="s"></i><i class="h" data-d="w"></i><i class="h"
+              data-d="e"></i>
+            <i class="h" data-d="nw"></i><i class="h" data-d="ne"></i><i class="h" data-d="sw"></i><i class="h"
+              data-d="se"></i>
+          </div>
+
+          <!-- Beige Content Frame (My Computer) -->
+          <div class="retro-win theme-beige" id="win-computer" data-theme="beige" data-init-x="154" data-init-y="66"
+            role="dialog" aria-label="My Computer" tabindex="-1">
+            <div class="frame"></div>
+            <div class="title"><span class="title-text">My Computer</span></div>
+            <button class="wtb bmin" type="button" title="Minimize" aria-label="Minimize My Computer"></button>
+            <button class="wtb bmax" type="button" title="Maximize / restore"
+              aria-label="Maximize or restore My Computer"></button>
+            <button class="wtb bclose" type="button" title="Close" aria-label="Close My Computer"></button>
+            <div class="pane">
+              <section class="pc-root">
+                <h2 class="pc-title">My Computer
+                  <svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M4 14C60 4 120 22 180 8S280 18 296 6" />
+                  </svg>
+                </h2>
+                <p class="pc-sub">system properties (read-only, mostly)</p>
+
+                <div class="pc-top">
+                  <div class="pc-term">
+                    <div class="pc-term-bar" aria-hidden="true"><i></i><i></i><i></i>system.info</div>
+                    <dl>
+                      <dt>user</dt>
+                      <dd>jitvan@portfolio</dd>
+                      <dt>model</dt>
+                      <dd>BSc Computer Science &amp; Statistics</dd>
+                      <dt>host</dt>
+                      <dd>CHRIST (Deemed to be University), Bengaluru</dd>
+                      <dt>build</dt>
+                      <dd>Batch 2024-27, final year</dd>
+                      <dt>shell</dt>
+                      <dd>Linux command line</dd>
+                      <dt>locale</dt>
+                      <dd>English (C1), Hindi (fluent)</dd>
+                      <dt>status</dt>
+                      <dd>open to web development internships</dd>
+                    </dl>
+                  </div>
+
+                  <div class="pc-note">
+                    <h3>Education</h3>
+                    <ul class="pc-edu">
+                      <li>
+                        <b>CHRIST (Deemed to be University), Bengaluru</b>
+                        <span>BSc, Computer Science &amp; Statistics &middot; CGPA 7.65/10</span>
+                        <em>Jun 2024 - May 2027 (expected)</em>
+                      </li>
+                      <li>
+                        <b>St. Aloysius Senior Secondary School, Jabalpur</b>
+                        <span>CBSE &middot; Class XII 90.60% &middot; Class X 93.67%</span>
+                        <em>Class XII, May 2024</em>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="pc-section">
+                  <h3><span>Drives</span></h3>
+                  <ul class="pc-drives">
+                    <li class="pc-drive">
+                      <i aria-hidden="true">C:</i><b>Languages</b>
+                      <ul class="pc-tags">
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript</li>
+                        <li>Java</li>
+                        <li>Python</li>
+                        <li>SQL</li>
+                      </ul>
+                    </li>
+                    <li class="pc-drive">
+                      <i aria-hidden="true">D:</i><b>Web dev &amp; QA</b>
+                      <ul class="pc-tags">
+                        <li>Responsive design</li>
+                        <li>Cross-browser testing</li>
+                        <li>Debugging</li>
+                        <li>Chrome DevTools</li>
+                        <li>Git &amp; GitHub</li>
+                      </ul>
+                    </li>
+                    <li class="pc-drive">
+                      <i aria-hidden="true">E:</i><b>Databases &amp; cloud</b>
+                      <ul class="pc-tags">
+                        <li>PostgreSQL (Neon)</li>
+                        <li>Vercel</li>
+                        <li>AWS</li>
+                      </ul>
+                    </li>
+                    <li class="pc-drive">
+                      <i aria-hidden="true">F:</i><b>Tools</b>
+                      <ul class="pc-tags">
+                        <li>Linux CLI</li>
+                        <li>Figma</li>
+                        <li>Canva</li>
+                        <li>MS Excel (advanced)</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="pc-section">
+                  <h3><span>Installed certificates</span></h3>
+                  <ul class="pc-certs">
+                    <li><b>Python Foundation Certification</b><span>Infosys Springboard</span><em>Jan 2026</em></li>
+                    <li><b>Introduction to Statistics</b><span>Stanford Online / Coursera</span><em>Jan 2026</em></li>
+                    <li><b>Fundamentals of Cybersecurity</b><span>Google / Coursera</span><em>Jul 2026</em></li>
+                  </ul>
+                </div>
+
+                <div class="pc-section">
+                  <h3><span>Background processes</span></h3>
+                  <ul class="pc-procs">
+                    <li>
+                      <b>Media Head &amp; Core Member</b><em>Mar 2024 - Mar 2026</em>
+                      <span>Club of Hindi and Urdu Poets, CHRIST University</span>
+                      <p>Led media and promotions, including outreach for the flagship event Sham-E-Ghazal, which filled
+                        the campus auditorium with 2,000+ attendees.</p>
+                    </li>
+                    <li>
+                      <b>Peer Educator, School of Science</b><em>Jun 2025 - Mar 2026</em>
+                      <span>Centre for Counselling and Health Services, CHRIST University</span>
+                      <p>Ran well-being workshops and group discussions on campus resources.</p>
+                    </li>
+                    <li>
+                      <b>Event Head, INTERFACE'25</b><em>Aug 2025</em>
+                      <span>Department of Computer Science, CHRIST University</span>
+                      <p>Planned and ran an inter-college escape room event from start to finish.</p>
+                    </li>
+                  </ul>
+                </div>
+              </section>
+            </div>
+            <i class="h" data-d="n"></i><i class="h" data-d="s"></i><i class="h" data-d="w"></i><i class="h"
+              data-d="e"></i>
+            <i class="h" data-d="nw"></i><i class="h" data-d="ne"></i><i class="h" data-d="sw"></i><i class="h"
+              data-d="se"></i>
+          </div>
+
+          <div id="chip-container">
+            <button class="chip" type="button" data-win="win-about">&#9633; About Me</button>
+            <button class="chip" type="button" data-win="win-resume">&#9633; Resume</button>
+            <button class="chip" type="button" data-win="win-projects">&#9633; Projects</button>
+            <button class="chip" type="button" data-win="win-computer">&#9633; My Computer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="img-modal" role="dialog" aria-modal="true" aria-label="Full Image Preview">
+    <img id="img-modal-src" alt="">
+    <button id="img-modal-close" type="button">[ESC] CLOSE</button>
+  </div>
+  <script src="script.js"></script>
+  <script src="projects.js"></script>
+</body>
+
+</html>
