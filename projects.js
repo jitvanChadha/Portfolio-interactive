@@ -64,7 +64,13 @@ function initProjects() {
       title: "Think Stack: SLM Research Assistant", hl: "",
       role: "Local-First Research Assistant with Cryptographic Vault & RAG",
       caption: "Cryptographic vault and local SLM assistant", ph: "Think Stack vault preview",
-      images: [],
+      images: [
+        { src: "img/thinkstack-1-cover.webp", alt: "ThinkStack: a research assistant that runs on your own machine" },
+        { src: "img/thinkstack-2-upload.webp", alt: "ThinkStack library: upload and filter research papers" },
+        { src: "img/thinkstack-3-gaps.webp", alt: "ThinkStack LitGraph: analysing research gaps across papers" },
+        { src: "img/thinkstack-4-latex.webp", alt: "ThinkStack Scribe: writing and compiling LaTeX papers" },
+        { src: "img/thinkstack-5-models.webp", alt: "ThinkStack Bench: adding and managing local language models" }
+      ],
       bullets: [
         "Built a responsive React 19 frontend with Framer Motion transitions and a RAG grounding selector, enabling users to contextualize LLM responses against local document libraries.",
         "Designed the document ingestion and chunking pipeline using PyMuPDF for text extraction and Pydantic for schema validation, integrating a Small Language Model (SLM) to drive context-aware chunking and populate a local vectorized storage layer.",
@@ -95,7 +101,7 @@ function initProjects() {
       <div class="pj-media-wrap">${media(p)}</div>
       <div class="pj-info">
         <div class="pj-badges">
-          <a class="pj-demo ${p.demoColor ? "pj-" + p.demoColor : ""}" href="${p.url}" target="_blank" rel="noopener noreferrer">Live demo &#8599;</a>
+          <a class="pj-demo ${p.demoColor ? "pj-" + p.demoColor : ""}" href="${p.url}" target="_blank" rel="noopener noreferrer">Live demo</a>
         </div>
         <h3 class="pj-ptitle"><span class="pj-hl ${p.hl ? "pj-" + p.hl : ""}">${p.title}</span></h3>
         <p class="pj-role">${p.role}</p>
